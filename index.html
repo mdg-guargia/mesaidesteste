@@ -1,0 +1,422 @@
+<!DOCTYPE html><html lang="fr"><head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=6">
+		<title>Mes aides énergie</title>
+		<link rel="icon" type="image/png" href="images/fav_mea.png">
+
+		<link href="css/style.css" rel="stylesheet">
+		<script src="js/api.js"></script>
+		<script async src="js/jquery-3.6.0.min.js"></script>
+		<!--<script src="https://dnserv.fr/bootstrap5/bootstrap.min.js"></script>-->
+		<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" href="https://dnserv.fr/bootstrap5/bootstrap.min.css">
+		<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css?family=Lato:400,900,300,700&display=swap">
+		<noscript>
+			<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+			<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,900,300,700&amp;display=swap">
+		</noscript>
+		<script type="text/javascript" src="js/fakeform.js"></script>
+		<style>
+			.grecaptcha-badge {
+				display: none !important;
+			}
+.img-responsive {
+    width: 100%;
+    height: auto;
+}
+
+#Schema .schema-item {
+    padding: 15px 10px;
+	border-top: 2px solid rgba(10,10,10,0.05);
+	border-bottom: 2px solid rgba(10,10,10,0.05);
+}
+
+#Schema .schema-item h3 {
+    text-align: left;
+    color: #21b7bb;
+    text-transform: uppercase;
+    line-height: 100%;
+    padding: 0 0 0 48px !important;
+    position: relative;
+    font-size: 1.5rem;
+}
+
+#Schema .schema-item h3:before {
+    content: attr(data-num);
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,0.3);
+    line-height: 40px;
+    text-align: center;
+    font-size: 2rem;
+    left: 0;
+    top: 50%;
+    margin-top: -20px;
+}
+
+#play_button {
+max-width: 100%;
+max-height: 100%;
+width: 16px;
+padding-bottom: 4px;
+fill: rgba(210, 11, 11, 1);
+}
+
+#Schema h2 {
+text-transform: uppercase;
+color: #000;
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+</style>
+
+		<!-- Meta -->
+		<meta name="title" content="Mes aides énergie">
+		<meta name="keywords" content="pompe à chaleur,">
+		<!--<meta name="robots" content="index, follow">-->
+		<meta name="robots" content="noindex, nofollow">
+		
+		<meta name="language" content="French">
+
+		<!-- Open Graph -->
+		<meta property="og:title" content="Mes aides énergie">
+		<meta property="og:site_name" content="Mes aides énergie">
+		<meta property="og:type" content="website">
+
+
+
+
+		<style>
+            #ScrollHeader #btntop {
+                display: none;
+            }
+
+            #ScrollHeader.scroll #btntop {
+                display: block;
+            }
+
+            p a {
+	            color: rgba(210, 11, 11, 1);
+            }
+
+            p a:hover {
+	            color: rgba(210, 11, 11, 1);
+            }
+
+            #logo_droped {
+	            display: none;
+            }
+
+            @media (max-width: 992px) {
+	            #logo_droped {
+		            display: inline-block;
+	            }
+
+                #logo_droped2 {
+                    display: none;
+                }
+            }
+            @media (max-width: 767px) {
+                #logo_droped {
+                    display: none;
+                }
+
+                #logo_droped2 {
+                    display: inline-block;
+                }
+            }
+
+		</style>
+
+		<script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const currentMonths = document.getElementsByClassName('currentMonth');
+                const month = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+                const d = new Date();
+                const monthName = month[d.getMonth()];
+                for (let i = 0; i < currentMonths.length; i++) {
+                    currentMonths[i].innerText = monthName;
+                }
+            });
+            let url = window.location.href.replace(/&lp=[a-z\d-]+/g, '').replace(/\?lp=[a-z\d-]+&/g, '?');
+            history.pushState(null, document.title, url.replace("?", "?lp=plano7m-hiver&"));
+
+            function highlight_form() {
+                let w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+                window.scrollTo(0, w > 768 ? 0 : 100);
+                document.getElementById('Form').style.boxShadow = '0 0 15px 4px #fff';
+            }
+
+            function adapt_logo() {
+                let w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+                let header = document.getElementById("ScrollHeader");
+                if (!header) return;
+                let y = document.body.scrollTop || document.documentElement.scrollTop;
+                header.classList.toggle("scroll", w > 767 && y > header.offsetHeight);
+            }
+
+            window.addEventListener("scroll", adapt_logo);
+
+            window.presale = "mea/pac";
+
+			function presend() {
+				grecaptcha.ready(function () {
+					grecaptcha.execute('6LdPThMjAAAAAKYDnXdD5UP-6LVbqxRTiLFGSkPW', {action: 'submit'}).then(function (token) {
+                        window.values.googleretoken = token;
+                        send();
+						// Add your logic to submit to your backend server here.
+					});
+				});
+
+			}
+		</script>
+
+		<script data-gtm="GTM-M67D2TT" data-ua="UA-179016486-2" src="js/rgpd.js"></script>
+
+	</head>
+	<body>
+
+		<header id="ScrollHeader" class="fixed-top" style="height:72px;background-color:#fff;width:100%;padding-left: 1.5rem;">
+			<div class="ml-4 mt-2" style="float:left" id="logo">
+				<img src="fonts/logo-mea.svg" width="288" height="50" style="height:55px" alt="Logo">
+			</div>
+			<div class="d-none d-md-block" style="float:right;padding-right:20px;">
+				<a id="btntop" onclick="highlight_form()" href="#" class="link-style btn mr-4" style="background:#11BB5A;">
+					Obtenez votre installation !
+				</a>
+			</div>
+		</header>
+
+		<main>
+			<div id="id_jumb" class="jumbotron" style="position:relative;background-image: url(&#x27;images/pac-brique.webp&#x27;);background-repeat: no-repeat;background-size: cover;background-position: center;">
+				<div class="container">
+					<div class="row firstrow">
+						<div class="col-lg-7">
+							
+
+							<div class="hc-tips">
+								<ul class="tips row">
+									
+									<li>
+										<span class="count">✓</span>
+										<p>Profitez du Plan "Pompe à Chaleur" du gouvernement !</p>
+									</li>
+									
+									<li>
+										<span class="count">✓</span>
+										<p>L'Etat finance votre installation (jusqu'à 14 000 € d'aides) !</p>
+									</li>
+									
+									<li>
+										<span class="count">✓</span>
+										<p>Economisez jusqu'à 5 000 € sur vos factures annuelles !</p>
+									</li>
+									
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-5">
+							
+							<h3 class="slider-box-title">DEMANDEZ VOTRE POMPE À CHALEUR EN 30 SECONDES</h3>
+							
+							<div class="slider-box-appointment" style="background-color: rgba(210, 11, 11, 0.9)" id="Form">
+								<div class="header">
+
+									<h2 class="heading font-2 text-center" style="font-size: 14px;">Test gratuit & sans engagement</h2>
+								</div>
+								<hr class="hr-2">
+								<div class="body">
+									<form action="process_form.php" method="POST">
+										<p style="font-weight: bold;font-size:15px;color:#fff;margin: 3px 0 0 0">J'habite :</p>
+										<div class="row" style="margin-bottom: 15px">
+											<div class="col-lg-12 has-feedback" style="padding-right:0;margin-bottom:7px">
+												<select name="house_type" id="id_house_type" class="form-control form-select">
+													<option value="1">Une maison</option>
+													<option value="2">Un appartement</option>
+												</select>
+											</div>
+										</div>
+										
+										<p style="font-weight: bold;font-size:15px;color:#fff;margin: 3px 0 0 0">Je suis :</p>
+										<div class="row" style="margin-bottom: 15px">
+											<div class="col-lg-12 has-feedback" style="padding-right:0;margin-bottom:7px">
+												<select name="own_state" id="id_own_state" class="form-control form-select">
+													<option value="1">Propriétaire</option>
+													<option value="2">Locataire</option>
+												</select>
+											</div>
+										</div>
+										
+										<p style="font-weight: bold;font-size:15px;color:#fff;margin: 3px 0 0 0">Mon type de chauffage :</p>
+										<div class="row" style="margin-bottom: 15px">
+											<div class="col-lg-12 has-feedback" style="padding-right:0;margin-bottom:7px">
+												<select name="heating" id="id_heating" class="form-control form-select">
+													<option value="2">Gaz</option>
+													<option value="1">Electrique</option>
+													<option value="4">Fioul</option>
+													<option value="3">Autre</option>
+												</select>
+											</div>
+										</div>
+										
+										<p style="font-weight: bold;font-size:15px;color:#fff;margin: 3px 0 0 0">Mes coordonnées :</p>
+										<div class="row" style="margin-bottom: 15px">
+											<div class="col-lg-6 has-feedback" style="padding-right:0;margin-bottom:7px;padding-left: 15px;">
+												<input id="idlastname" name="lastname" class="check form-control hard" placeholder="Nom" required>
+											</div>
+											<div class="col-lg-6 has-feedback" style="padding-right:0;margin-bottom:7px;padding-left: 15px;">
+												<input id="idfirstname" name="firstname" class="check form-control hard" placeholder="Prénom" required>
+											</div>
+										</div>
+										<div class="row" style="margin-bottom: 15px">
+											<div class="col-lg-12 has-feedback" style="padding-right:0;margin-bottom:7px">
+												<input pattern="\d{5}" data-error="Le champ code postal doit contenir 5 chiffres" id="idzip" name="zip" title="code postal sur 5 chiffres" class="check form-control hard" placeholder="Code postal" required>
+											</div>
+										</div>
+
+											<p style="text-align:left;font-weight:bold;font-size:14px;color:#fff;margin:3px 0">Je reçois ma réponse personnalisée :</p>
+											<div class="row" style="margin-bottom: 15px;">
+												<div class="col-lg-12 has-feedback" style="padding-right:0;margin-bottom:7px;">
+													<input data-error="Le champ e-mail doit contenir un arobase et un point" type="email" id="idemail" name="email" title="adresse e-mail valide" class="check form-control hard" placeholder="E-mail" required>
+												</div>
+											</div>
+											<div class="row" style="margin-bottom: 15px;">
+												<div class="col-lg-12 has-feedback" style="padding-right:0;margin-bottom:7px;">
+													<input pattern="\d{10}" data-error="Le champ téléphone doit contenir uniquement 10 chiffres" id="idphone" name="phone" title="10 chiffres uniquement" class="check form-control hard" placeholder="Téléphone" required>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="col-md-12 text-center" style="padding-right:0;">
+													<button id="idbtnsubmit" type="submit" class="btn btn-cta" style="background:#345;border:1px solid #fff">Vérifier mon éligibilité ></button>
+												</div>
+											</div>
+										</form>
+										
+									
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<section>
+				<div class="container inner pb-0" id="Content">
+					<div class="row">
+						
+						<div class="col-md-3 mb-5" style="text-align:center">
+							<img id="logo_droped" alt="Logo Aides" loading="lazy" style="top:5px;position:relative;max-height:53px !important;max-width: 300px;" src="fonts/logo-mea.svg">
+							<img id="logo_droped2" alt="Logo Aides" loading="lazy" style="top: 5px;position:relative;max-height:53px !important;max-width: 300px;" src="fonts/logo-mea.svg">
+						</div>
+						
+						<div class="col-md-3 mb-5" style="text-align:center">
+							<img alt="Logo Qualibat" loading="lazy" style="position:relative;max-height:90px !important;max-width:300px !important;top: -15px;" src="images/logo-qualibat.webp">
+						</div>
+						
+						<div class="col-md-3 mb-5" style="text-align:center">
+							<img alt="Logo a+" loading="lazy" style="position:relative;max-height:80px !important;max-width:300px !important;" src="images/logo6.webp">
+						</div>
+						
+						<div class="col-md-3 mb-5" style="text-align:center">
+							<img alt="Logo primerenov" loading="lazy" style="position:relative;max-height:80px !important;max-width:300px !important;" src="images/logorenov.webp">
+						</div>
+						
+					</div>
+					<div class="row" style="margin-bottom: 10px;">
+						<div class="col-sm-12" data-aos="fade-up">
+							
+								<h2 style="color: #11BB5A !important;margin-bottom:15px">Le Gouvernement réagit face à la crise énergétique</h2>
+
+							<p>Face à <strong>l'explosion des tarifs</strong> des énergies, <strong>le Gouvernement</strong> lance le Plan "Pompe à chaleur".</p>
+							<p>L'Etat a débloqué <strong>30 milliards d'euros</strong> pour la transition écologique et veut aider les Français, alors qu'un <strong>hiver très rude</strong> se présente.</p>
+							<p>Faites votre demande de subventions et obtenez jusqu'à <strong>14 000€ d'aides</strong> en <strong><span class="currentMonth">juin</span> 2023</strong> !</p>
+							<p>Faites remplacer votre mode de chauffage actuel et <strong>économisez jusqu'à 5 000€</strong> sur vos factures annuelles !</p>
+
+								<h2 style="color:#11BB5A !important;margin-bottom:15px">Que dois-je faire pour en profiter ?</h2>
+							
+							<p>Il vous suffit de remplir le formulaire !</p>
+							<p>Nos conseillers vous permettront de <strong>bénéficier des subventions</strong> auxquelles vous avez le droit pour obtenir votre pompe à chaleur réversible.</p>
+							<p>Les travaux seront ensuite réalisés par notre réseau d’installateurs agréés, <strong>reconnus Garants de l'Environnement</strong>.</p>
+							
+								<p style="font-weight:bold;color:#11BB5A;font-size:17px;margin-top:15px"><a style="border:0;text-decoration:none !important;color:#11BB5A !important;" onclick="highlight_form()" href="#"><svg id="play_button" style="fill: #11BB5A !important;" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 512"><path fill-rule="nonzero" d="M255.99 0c70.68 0 134.7 28.66 181.02 74.98C483.33 121.3 512 185.31 512 256c0 70.68-28.67 134.69-74.99 181.01C390.69 483.33 326.67 512 255.99 512S121.3 483.33 74.98 437.01C28.66 390.69 0 326.68 0 256c0-70.67 28.66-134.7 74.98-181.02C121.3 28.66 185.31 0 255.99 0zm77.4 269.81c13.75-8.88 13.7-18.77 0-26.63l-110.27-76.77c-11.19-7.04-22.89-2.9-22.58 11.72l.44 154.47c.96 15.86 10.02 20.21 23.37 12.87l109.04-75.66zm79.35-170.56c-40.1-40.1-95.54-64.92-156.75-64.92-61.21 0-116.63 24.82-156.74 64.92-40.1 40.11-64.92 95.54-64.92 156.75 0 61.22 24.82 116.64 64.92 156.74 40.11 40.11 95.53 64.93 156.74 64.93 61.21 0 116.65-24.82 156.75-64.93 40.11-40.1 64.93-95.52 64.93-156.74 0-61.22-24.82-116.64-64.93-156.75z"/></svg> Obtenez vos subventions pour votre pompe à chaleur</a>
+							
+						</p></div>
+
+						<div class="col-md-6" style="text-align:center;padding:0 30px">
+							<img loading="lazy" src="fonts/pac-compar.svg" width="310" height="300" style="width:100%;height:auto" alt="Tableau économies">
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+			
+			<section id="ContentContainer" style="background:#f9f9f9">
+        <div class="container inner">
+            <div id="Schema">
+                <h2>
+					POURQUOI LA POMPE À CHALEUR EST-ELLE SI ÉCONOMIQUE ?
+                </h2>
+                <p id="borderbottomtext">
+					Focus sur ce moyen de chauffage incontournable pour réduire considérablement ses factures :
+                </p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="schema-item">
+							<h3 data-num="1">ELLE PRODUIT ÉNORMÉMENT D’ÉNERGIE</h3>
+							<p>En recyclant gratuitement les calories présentes dans l’air extérieur</p>
+                            <img width="250" loading="lazy" height="100" src="images/schema-a.jpg" class="img-responsive" alt="Clim">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="schema-item">
+							<h3 data-num="2">ELLE CONSOMME TRÈS PEU D’ÉLECTRICITÉ</h3>
+							<p>Et assure ainsi des factures d’énergie très faibles à ses propriétaires</p>
+                            <img width="250" loading="lazy" height="100" src="images/schema-b.jpg" class="img-responsive" alt="Radiateur">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="schema-item">
+							<h3 data-num="3">LE MODE DE CHAUFFAGE LE PLUS RENTABLE</h3>
+							<p>Devant ses concurrents : le fioul, le gaz, le bois et es radiateurs électriques</p>
+                            <img width="250" loading="lazy" height="100" src="images/schema-c.jpg" class="img-responsive" alt="Climatiseur">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+			
+
+			<a onclick="highlight_form()" id="get-in-touch" href="#" class="tint-bg ctaf" style="background-color: #d40000;">
+				<div class="container inner-sm ctaf">
+					<div class="row ctaf">
+						<div class="col-sm-12 center-block text-center aos-init aos-animate ctaf" data-aos="fade-up">
+							<h1 class="single-block ctaf" data-unsp-sanitized="clean"><span class="ctaf">Obtenez vos aides en 30 secondes !</span>
+							</h1>
+						</div>
+					</div>
+				</div>
+			</a>
+		</main>
+
+		<footer style="padding:10px 5px;background:#394048;color:#fff;text-align:center">
+			© 2023 mes-aides-energie.fr  –  Tous droits réservés  – 
+			<a href="#s" style="cursor:pointer" onclick="myrgpd.privacy_policy()">Politique de confidentialité</a>
+			 –  <a href="#s" style="cursor:pointer" onclick="myrgpd.legal_reserves()">Mentions
+			légales</a>
+		</footer>
+
+		<script type="text/javascript" src="js/main.js"></script>
+		
+		
+	
+
+</body></html>
